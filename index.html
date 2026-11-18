@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Meghna's Ultimate Love Universe ❤️✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BACKGROUND NEON PARTICLES CANVAS -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- BACKGROUND AUDIO ELEMENT FOR YOUR SONG -->
+    <audio id="vault-audio" loop>
+        <source src="meghna.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MAIN SECURE CONTAINER -->
+    <div class="cyber-container">
+        <div class="glow-badge">🔒 SECURE CYBER VAULT 🔒</div>
+        <h1>Meghna's Birthday Portal</h1>
+        <p class="tagline">Yeh vault sirf 19 Nov 2026 ko ya secret passcode se hi unlock hoga!</p>
+
+        <!-- COUNTDOWN TIMER -->
+        <div class="timer-box">
+            <div class="timer-title">⏳ TIME UNTIL 19 NOV 2026 ⏳</div>
+            <div id="countdown-display" class="countdown-numbers">00 : 00 : 00 : 00</div>
+        </div>
+
+        <!-- LOCKED STATUS & PASSCODE INPUT -->
+        <div id="lock-section" class="lock-box">
+            <p id="lock-status-text">⚠️ Vault is currently locked by system timer.</p>
+            <div class="passcode-input-group">
+                <input type="password" id="passcode-input" placeholder="Happy Birthday Meghna!" maxlength="4">
+                <button class="cyber-btn unlock-btn" onclick="verifyPasscode()">Unlock Vault 🔓</button>
+            </div>
+            <p class="hint-text">Hint: Happy Birthday Meghna! 🎉</p>
+        </div>
+    </div>
+
+    <!-- UNLOCKED ULTIMATE CELEBRATION DASHBOARD MODAL -->
+    <div id="unlocked-modal" class="modal-overlay">
+        <canvas id="celebration-canvas"></canvas>
+        <div class="modal-card">
+            <div class="dj-badge">🪩 SYSTEM UNLOCKED • MEGHNA'S UNIVERSE 🪩</div>
+            <h2>Happy Birthday Meri Jaan Meghna! ❤️✨</h2>
+            
+            <!-- DIL SE HEARTFELT WISH -->
+            <div class="heartfelt-wish">
+                <p><strong>Meri Sabse Pyari Meghna,</strong></p>
+                <p>7 saal ka yeh lamba long-distance safar aur har ek guzarta pal sirf yeh sabit karta hai ki tum meri zindagi ki sabse khoobsurat haqeeqat ho. Chahe hamare beech kitne bhi meelon ki doori kyun na ho, meri har saans aur mera har khwab sirf tumse shuru hokar tumhi par khatam hota hai.</p>
+                <p>Aaj tumhare janamdin par bas yahi dua hai ki tumhari zindagi hamesha muskurahaton, kamyabi aur bepanah pyaar se roshan rahe. Tum meri poori duniya ho!</p>
+                <p class="wish-sign">Hamesha aur sirf tumhara,<br>Happy Birthday Baby <br> <strong>Tumhara Pyar Motu ❤️</strong></p>
+            </div>
+
+            <!-- FEATURE 1: EXACT LOVE-TIMER & JOURNEY COUNTER -->
+            <div class="feature-box">
+                <h3>⏱️ Hamare Pyaar Ka Live Safar</h3>
+                <div id="love-journey-timer" class="love-stats">1,826+ Days • 43,824+ Hours of Pure Love</div>
+                <p class="sub-note">"Dooriyan sirf numbers hain, hamara dil har second saath dhadakta hai."</p>
+            </div>
+
+            <!-- FEATURE 2: 4-YEARS MEMORY STAR MAP -->
+            <div class="feature-box">
+                <h3>🌟 4-Years Memory Star Map</h3>
+                <p class="sub-note">Niche chamakte sitaron par click karke hamari yaadein dekho:</p>
+                <div class="star-map-grid">
+                    <button class="star-btn" onclick="showStarMemory(1)">⭐ Star I: Pehli Mulaqat</button>
+                    <button class="star-btn" onclick="showStarMemory(2)">🌟 Star II: Long Distance</button>
+                    <button class="star-btn" onclick="showStarMemory(3)">✨ Star III: Hamare Sapne</button>
+                    <button class="star-btn" onclick="showStarMemory(4)">💫 Star IV: Forever Promise</button>
+                </div>
+                <div id="star-memory-display" class="memory-card-output">✨ Kisi bhi sitare ko chhu kar hamari kahani padho...</div>
+            </div>
+
+            <!-- FEATURE 3: SCRATCH-TO-REVEAL SURPRISE GIFT CARD -->
+            <div class="feature-box">
+                <h3>🎁 Scratch-to-Reveal Surprise Gift</h3>
+                <p class="sub-note">Apni ungli (finger) se niche golden card ko scratch karo:</p>
+                <div class="scratch-container">
+                    <div class="secret-gift-text">
+                        🎉 <strong>MEGA SURPRISE UNLOCKED!</strong> 🎉<br>
+                        Jab hum milenge: Ek Special Romantic Candlelight Dinner + Tumhari Pasand Ka Ek Special Gift Meri Taraf Se! ❤️🌹
+                    </div>
+                    <canvas id="scratch-canvas" width="320" height="110"></canvas>
+                </div>
+            </div>
+
+            <!-- FEATURE 4: FUTURE TIME-CAPSULE LETTERS -->
+            <div class="feature-box">
+                <h3>📦 Future Time-Capsule Letters</h3>
+                <div class="capsule-list">
+                    <div class="capsule-item unlocked-cap" onclick="openTimeCapsule('2026')">
+                        🔓 <strong>19 Nov 2026 Letter:</strong> "Aaj Ka Khaas Paigham" (Tap to Read)
+                    </div>
+                    <div class="capsule-item locked-cap" onclick="openTimeCapsule('2027')">
+                        🔒 <strong>19 Nov 2027 Letter:</strong> Locked until Next Birthday
+                    </div>
+                    <div class="capsule-item locked-cap" onclick="openTimeCapsule('2030')">
+                        🔒 <strong>19 Nov 2030 Letter:</strong> Locked for Our Future Together
+                    </div>
+                </div>
+                <p id="capsule-message-box" class="capsule-output"></p>
+            </div>
+
+            <!-- FEATURE 5: VIRTUAL CAKE CUTTING -->
+            <div class="feature-box">
+                <h3>🎂 Futuristic Birthday Cake</h3>
+                <div id="cake-display" class="neon-cake">🕯️🎂🎂🎂🕯️</div>
+                <button class="cyber-btn" onclick="cutCake()">Cut The Cake 🗡️✨</button>
+            </div>
+
+            <!-- FEATURE 6: CYBER LOVE COUPONS -->
+            <div class="feature-box">
+                <h3>🎫 Cyber Love Coupons</h3>
+                <div class="coupon-grid">
+                    <div class="coupon-card" onclick="redeemCoupon(this)">🍕 Unlimited Pizza & Coffee Date</div>
+                    <div class="coupon-card" onclick="redeemCoupon(this)">🚗 Ek Lambi Long Drive Ka Waada</div>
+                    <div class="coupon-card" onclick="redeemCoupon(this)">💆‍♀️ Bina Rok-Tok Non-Stop Pampering</div>
+                </div>
+            </div>
+
+            <!-- FEATURE 7: MATRIX SECRET DECODER -->
+            <div class="feature-box">
+                <h3>💻 Matrix Secret Decoder</h3>
+                <p id="matrix-text" class="matrix-output">[ Encrypted: Click to decode message ]</p>
+                <button class="cyber-btn" onclick="decodeMatrixMessage()">Decode Secret 🔓</button>
+            </div>
+
+            <button class="cyber-btn special-btn" onclick="closeWishModal()">Close & Enjoy Portal 🚀</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

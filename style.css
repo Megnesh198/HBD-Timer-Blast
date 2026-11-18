@@ -1,0 +1,429 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #030308;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cyber-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(15, 10, 30, 0.85);
+    border: 2px solid #00f5d4;
+    border-radius: 28px;
+    padding: 30px 24px;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 45px rgba(0, 245, 212, 0.35), inset 0 0 25px rgba(255, 10, 84, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+.glow-badge {
+    display: inline-block;
+    background: #ff0a54;
+    color: #ffd166;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px #ff0a54;
+}
+
+h1 {
+    color: #ff4d6d;
+    font-size: 26px;
+    margin: 5px 0 10px;
+    text-shadow: 0 0 12px rgba(255, 77, 109, 0.6);
+}
+
+.tagline {
+    color: #fdf8e1;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.timer-box {
+    background: rgba(5, 5, 20, 0.9);
+    border: 1.5px solid #7209b7;
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(114, 9, 183, 0.4);
+}
+
+.timer-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #00f5d4;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.countdown-numbers {
+    font-size: 21px;
+    font-weight: bold;
+    color: #ffd166;
+    text-shadow: 0 0 10px #ffd166;
+    font-family: monospace;
+}
+
+.lock-box {
+    background: rgba(25, 10, 20, 0.9);
+    border: 1.5px dashed #ff4d6d;
+    border-radius: 16px;
+    padding: 16px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* CELEBRATORY NEON SPARKLES CLASS WHEN TIMER ENDS */
+.timer-celebrate-glow {
+    border: 2px solid #00f5d4 !important;
+    box-shadow: 0 0 30px #00f5d4, 0 0 60px #ff0a54, inset 0 0 20px #ffd166 !important;
+    animation: neonPulseBox 1.2s infinite alternate;
+}
+
+@keyframes neonPulseBox {
+    0% {
+        box-shadow: 0 0 15px #00f5d4, inset 0 0 10px #ff0a54;
+    }
+    100% {
+        box-shadow: 0 0 35px #ff0a54, 0 0 50px #00f5d4, inset 0 0 25px #ffd166;
+    }
+}
+
+#lock-status-text {
+    font-size: 13px;
+    color: #ffd166;
+    margin-bottom: 12px;
+}
+
+.passcode-input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+#passcode-input {
+    flex: 1;
+    background: #05050a;
+    border: 2px solid #00f5d4;
+    border-radius: 12px;
+    color: #ffd166;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 4px;
+    padding: 10px;
+    outline: none;
+}
+
+.cyber-btn {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f);
+    color: #fff;
+    border: 1.5px solid #00f5d4;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.25);
+    transition: transform 0.2s;
+}
+
+.cyber-btn:hover {
+    transform: scale(1.03);
+}
+
+.unlock-btn {
+    background: linear-gradient(135deg, #00f5d4, #7209b7);
+    color: #030308;
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.hint-text {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 6px;
+}
+
+/* UNLOCKED WISH MODAL */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 3, 10, 0.96);
+    z-index: 100;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+    overflow-y: auto;
+    backdrop-filter: blur(15px);
+}
+
+#celebration-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.modal-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(18, 10, 32, 0.95);
+    border: 3px solid #00f5d4;
+    border-radius: 24px;
+    padding: 22px;
+    max-width: 430px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 245, 212, 0.7);
+    margin: 20px auto;
+}
+
+.dj-badge {
+    display: inline-block;
+    background: #ff0a54;
+    color: #ffd166;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 12px #ff0a54;
+}
+
+.modal-card h2 {
+    color: #ff4d6d;
+    margin: 5px 0 12px;
+    font-size: 22px;
+    text-shadow: 0 0 10px rgba(255, 77, 109, 0.6);
+}
+
+.heartfelt-wish {
+    background: rgba(5, 5, 15, 0.85);
+    border: 1.5px solid rgba(255, 77, 109, 0.5);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: left;
+    margin-bottom: 14px;
+}
+
+.heartfelt-wish p {
+    color: #fdf8e1;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 0 0 8px;
+}
+
+.wish-sign {
+    text-align: right;
+    color: #00f5d4 !important;
+    font-weight: bold;
+    margin-bottom: 0 !important;
+}
+
+/* FEATURE BOXES STYLING */
+.feature-box {
+    background: rgba(5, 5, 20, 0.88);
+    border: 1.5px solid #00f5d4;
+    border-radius: 16px;
+    padding: 14px;
+    margin: 12px 0;
+    text-align: center;
+    box-shadow: inset 0 0 12px rgba(0, 245, 212, 0.15);
+}
+
+.feature-box h3 {
+    color: #ffd166;
+    font-size: 15px;
+    margin: 0 0 6px;
+}
+
+.sub-note {
+    font-size: 11.5px;
+    color: #ccc;
+    margin: 0 0 10px;
+}
+
+.love-stats {
+    font-size: 15px;
+    font-weight: bold;
+    color: #00f5d4;
+    text-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+    margin-bottom: 4px;
+}
+
+/* STAR MAP GRID */
+.star-map-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.star-btn {
+    background: rgba(114, 9, 183, 0.45);
+    border: 1px solid #00f5d4;
+    color: #ffd166;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.star-btn:hover {
+    background: #00f5d4;
+    color: #030308;
+}
+
+.memory-card-output {
+    background: rgba(15, 10, 30, 0.9);
+    border: 1px dashed #ff4d6d;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 12.5px;
+    color: #fdf8e1;
+    line-height: 1.5;
+}
+
+/* SCRATCH CARD STYLING */
+.scratch-container {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 110px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid #ffd166;
+    box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+}
+
+.secret-gift-text {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2b091c, #12092b);
+    color: #ffd166;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    z-index: 1;
+}
+
+#scratch-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+/* TIME CAPSULE STYLING */
+.capsule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.capsule-item {
+    padding: 9px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.unlocked-cap {
+    background: rgba(0, 245, 212, 0.18);
+    border: 1px solid #00f5d4;
+    color: #00f5d4;
+}
+
+.locked-cap {
+    background: rgba(255, 10, 84, 0.15);
+    border: 1px dashed #ff4d6d;
+    color: #ff8fa3;
+}
+
+.capsule-output {
+    font-size: 12.5px;
+    color: #fdf8e1;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.neon-cake {
+    font-size: 26px;
+    margin: 6px 0;
+    text-shadow: 0 0 15px #ff0a54;
+}
+
+.coupon-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.coupon-card {
+    background: rgba(114, 9, 183, 0.35);
+    border: 1px dashed #ff4d6d;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #00f5d4;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.coupon-card:hover {
+    background: rgba(114, 9, 183, 0.7);
+}
+
+.matrix-output {
+    font-family: monospace;
+    color: #00f5d4;
+    font-size: 11.5px;
+    word-break: break-word;
+    min-height: 22px;
+    margin-bottom: 6px;
+}
+
+.special-btn {
+    background: linear-gradient(135deg, #ff0a54, #7209b7);
+    border-color: #ff4d6d;
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    box-shadow: 0 0 20px rgba(255, 10, 84, 0.6);
+    margin-top: 10px;
+}
